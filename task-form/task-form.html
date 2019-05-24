@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feitto</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="task-form.css">
+    <script src="../main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p style="width: calc(100% - 80px); text-align:end"><a class="close-button" href="../task-list/task-list.html"><img src="../images/ic-clear.svg" /></a></p>
+            <p class="title"> Criar tarefa </p>
+            <input type="text" id="name" placeholder="Nome da Tarefa">
+            <input type="date" id="deadline" placeholder="Data de entrega">
+            <p class="subtitle"> Checklist </p>
+            <div class="checklist-options">
+                <input type="checkbox" id="check1" value="check1"><label> Conferir estoque </label></br>
+                <input type="checkbox" name="check2" value="check2"><label> Conversar com fornecedores </label></br>
+                <input type="checkbox" name="check3" value="check3"><label> Adicionar item... </label></br>
+            </div>
+            <button type="submit" onclick="location.href='../task-list/task-list.html'" class="button-default new-task">CRIAR TAREFA</button>
+        </div>
+    </div>
+</body>
+</html>

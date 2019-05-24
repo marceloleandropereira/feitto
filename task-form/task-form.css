@@ -1,0 +1,25 @@
+.content {
+    margin-top: 0px;
+}
+
+.checklist-options {
+    width: calc(100% - 20px);
+}
+
+.checklist-options > input[type=checkbox]{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.38;
+}
+
+.checklist-options label {
+    position: absolute;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.new-task {
+    margin-top: 150px;
+}

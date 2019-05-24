@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feitto</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="task-list.css">
+    <script src="../main.js"></script>
+</head>
+<body>
+    <div id="task-list" class="container">
+        <div class="content">
+            <p class="title"> Olá Roberto! </p>
+            <p class="subtitle"> Mantenha suas tarefas organizadas </p>
+            <h3 style="width: calc(100% - 60px)">Lista de tarefas</h3>
+            <img src="../images/ic-filter-list.svg">
+            <div class="card-task doing" onclick="editTask(this)">
+                <p class="card-title">Tarefas diárias</p>
+                <div class="letter-name">
+                    R
+                </div>
+                <div class="checklist-options">
+                    <input type="checkbox" id="check1" value="check1" checked><label> Conferir estoque </label></br>
+                    <input type="checkbox" name="check2" value="check2"><label> Conversar com fornecedores </label></br>
+                    <input type="checkbox" name="check3" value="check3"><label> Adicionar item... </label></br>
+                </div>
+                <hr class="divisor">
+                <img src="../images/ic-schedule.svg">
+                <span class="deadline">01/06/2019</span>
+                <button class="button-simple">FAZENDO</button>
+            </div>
+            <div class="card-task do" onclick="editTask(this)">
+                <p class="card-title">Inspeção Almoxarifado</p>
+                <div class="letter-name">
+                    R
+                </div>
+                <div class="checklist-options">
+                    <input type="checkbox" id="check1" value="check1"><label> Verificar Materiais </label></br>
+                </div>
+                <hr class="divisor">
+                <img src="../images/ic-schedule.svg">
+                <span class="deadline">12/06/2019</span>
+                <button class="button-simple">A FAZER</button>
+            </div>
+            <div class="card-task done" onclick="editTask(this)">
+                <p class="card-title">Despacho de produtos</p>
+                <div class="letter-name">
+                    R
+                </div>
+                <div class="checklist-options">
+                    <input type="checkbox" id="check1" value="check1" checked><label> Embalar Materiais </label></br>
+                    <input type="checkbox" id="check2" value="check2" checked><label> Preparar Envio </label></br>
+                    <input type="checkbox" id="check3" value="check3" checked><label> Despachar na transportadora </label></br>
+                </div>
+                <hr class="divisor">
+                <img src="../images/ic-schedule.svg">
+                <span class="deadline">12/06/2019</span>
+                <button class="button-simple">FEITO</button>
+            </div>
+            <div class="footer">
+                <img class="icon" src="../images/ic-dehaze.svg">
+                <img class="icon" src="../images/ic-view-agenda.svg">
+                <a href="../task-form/task-form.html" class="new-task"><img src="../images/plus.svg" /></a>
+                <img class="icon" src="../images/ic-date-range.svg">
+                <img class="icon" src="../images/ic-account-circle.svg">
+            </div>
+        </div>
+    </div>
+
+    <div id="task-details" class="container" style="display:none">
+        
+    </div>
+
+    <script>
+        function editTask(card) {
+            let task = {
+                className: card.className.split(" ")[1]
+            };
+            card.childNodes.forEach(htmlNode => {
+                if (htmlNode.className === 'card-title') {
+                    task.title = htmlNode.innerHTML;
+                } else if (htmlNode.className === 'deadline') {
+                    task.deadline = htmlNode.innerHTML;
+                } else if (htmlNode.className === 'letter-name') {
+                    task.letterName = htmlNode.innerHTML.trim();
+                } else if (htmlNode.className === 'checklist-options') {
+                    task.options = htmlNode.outerHTML;
+                } else if (htmlNode.className === 'button-simple') {
+                    task.status = htmlNode.innerHTML;
+                }
+                
+            });
+
+            document.getElementById('task-details').innerHTML = renderTaskDetail(task);
+            changeScreen();
+        }
+
+        function changeScreen() {
+            const taskList = document.getElementById('task-list').style.display;
+            const taskDetails = document.getElementById('task-details').style.display;
+            document.getElementById('task-list').style.display = taskDetails;
+            document.getElementById('task-details').style.display = taskList;
+        }
+
+        function renderTaskDetail(task) {
+            return `
+                <div class="content no-margin">
+                    <p style="width: calc(100% - 80px); text-align:end">
+                        <a class="close-button" href="../task-list/task-list.html">
+                            <img src="../images/ic-clear.svg" onclick="changeScreen()"/>
+                        </a>
+                    </p>
+                    <p class="title" style="margin-bottom:40px"> ${task.title} </p>
+                    <div class="div-content">
+                        <img src="../images/ic-schedule.svg">
+                        <span class="deadline">Data de entrega</span>
+                        <span class="date-deadline">${task.deadline}</span>
+                    </div>
+                    <hr class="divisor">
+                    <div class="div-content ${task.className}" style="border-left: 0px">
+                        <img src="../images/ic-trending-up.svg">
+                        <span class="deadline">Status</span>
+                        <button class="button-simple" style="margin-left: 200px !important">${task.status}</button>
+                    </div>
+                    <hr class="divisor">
+                    <div class="div-content">
+                        <img src="../images/ic-list.svg">
+                        <span class="deadline">Checklist</span>
+                    </div>
+                    ${task.options}
+                    <hr class="divisor">
+                    <div class="div-content">
+                        <img src="../images/ic-attach-file.svg">
+                        <span class="deadline">Anexos</span>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>

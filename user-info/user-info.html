@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feitto</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="../main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p class="title"> Vamos começar... </p>
+            <p class="subtitle"> Preencha seus dados </p>
+            <input type="text" id="name" placeholder="Nome">
+            <input type="text" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Telefone">
+            <input type="password" id="password" placeholder="Senha">
+            <input type="password" id="confirmPassword" placeholder="Confirmar senha">
+            <button type="submit" onclick="saveUser()" class="button-default">PRÓXIMO</button>
+        </div>
+    </div>
+    <script>
+        function saveUser() {
+            const inputs = document.getElementsByTagName('input');
+            for (var i = 0, l = inputs.length; i < l; i++) {
+                if(document.getElementById(inputs[i].id).value === '') {
+                    alert(`O campo ${inputs[i].placeholder} é obrigatório.`);
+                    document.getElementById(inputs[i].id).focus();
+                    return false;
+                }
+            }
+
+            setUser(name, email, phone, password);
+            location.href='../create-task/create-task.html'
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body {
+    background: rgba(233, 69, 131, 0.5);
+    padding: 10px;
+}
+
+.div-create-task {
+    width: 375px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skip-tutorial {
+    width: 100%;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.title {
+    margin-top: 30px;
+    color: white;
+    font-size: 30px;
+}
+
+.advice {
+    color: white;
+    font-size: 14px;
+    width: calc(100% - 20px);
+}
+
+.no-tasks {
+    width: 210px;
+    opacity: 0.3;
+}
+
+.new-task {
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
