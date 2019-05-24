@@ -13,11 +13,11 @@
 }
 
 .doing {
-    border-left: 5px solid #ffcc00;
+    border-left: 5px solid #007bff;
 }
 
 .doing > button {
-    background-color: #ffcc00;
+    background-color: #007bff;
 }
 
 .do {
@@ -42,15 +42,12 @@
 }
 
 .letter-name {
-    width: 26px;
-    height: 24px;
-    border-radius: 20px;
-    background-color: #635aa3;
-    text-align: center;
-    color: white;
-    font-size: 14.4px;
-    font-weight: 500;
-    padding: 3px 1px 0 0;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .checklist-options {
@@ -115,4 +112,10 @@
 
 .divisor {
     width: calc(100% - 20px);
+}
+
+.user-task {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: -47px;
 }

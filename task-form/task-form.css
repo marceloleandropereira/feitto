@@ -21,5 +21,19 @@
 }
 
 .new-task {
-    margin-top: 150px;
+    margin-top: 30px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.responsible > img:hover {
+    opacity: 1;
+    border: 1px solid #e94583;
 }

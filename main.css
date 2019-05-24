@@ -77,6 +77,23 @@ input::placeholder {
     font-size: 16px;
     color: white;
     border: 0px;
+    font-weight: 700;
+}
+
+.button-primary {
+    margin-top: 20px;
+    width: 305px;
+    height: 60px;
+    background-color: transparent;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #e94583;
+    border: 1px solid #e94583;
+    font-weight: 700;
 }
 
 .button-simple {

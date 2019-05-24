@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="task-list.css">
     <script src="../main.js"></script>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
 </head>
 <body>
     <div id="task-list" class="container">
@@ -18,9 +19,7 @@
             <img src="../images/ic-filter-list.svg">
             <div class="card-task doing" onclick="editTask(this)">
                 <p class="card-title">Tarefas diárias</p>
-                <div class="letter-name">
-                    R
-                </div>
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/642171524569427968/z2S0ttIf.jpg">
                 <div class="checklist-options">
                     <input type="checkbox" id="check1" value="check1" checked><label> Conferir estoque </label></br>
                     <input type="checkbox" name="check2" value="check2"><label> Conversar com fornecedores </label></br>
@@ -33,9 +32,7 @@
             </div>
             <div class="card-task do" onclick="editTask(this)">
                 <p class="card-title">Inspeção Almoxarifado</p>
-                <div class="letter-name">
-                    R
-                </div>
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/642171524569427968/z2S0ttIf.jpg">
                 <div class="checklist-options">
                     <input type="checkbox" id="check1" value="check1"><label> Verificar Materiais </label></br>
                 </div>
@@ -46,9 +43,9 @@
             </div>
             <div class="card-task done" onclick="editTask(this)">
                 <p class="card-title">Despacho de produtos</p>
-                <div class="letter-name">
-                    R
-                </div>
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/3783216013/9686c24c654ea4c32bc3ba5b65bfb547.jpeg">
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/975698940153815042/MEzlrQHV.jpg">
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/642171524569427968/z2S0ttIf.jpg">
                 <div class="checklist-options">
                     <input type="checkbox" id="check1" value="check1" checked><label> Embalar Materiais </label></br>
                     <input type="checkbox" id="check2" value="check2" checked><label> Preparar Envio </label></br>
@@ -114,6 +111,15 @@
                     </p>
                     <p class="title" style="margin-bottom:40px"> ${task.title} </p>
                     <div class="div-content">
+                        <img src="../images/responsible.svg" style="width:20px; opacity:0.5">
+                        <span class="deadline">Responsável</span>
+                        <div class="user-task">
+                            <span>Roberto Prado</span>
+                            <img class="avatar" src="https://pbs.twimg.com/profile_images/642171524569427968/z2S0ttIf.jpg">
+                        </div>
+                    </div>
+                    <hr class="divisor">
+                    <div class="div-content">
                         <img src="../images/ic-schedule.svg">
                         <span class="deadline">Data de entrega</span>
                         <span class="date-deadline">${task.deadline}</span>
@@ -133,10 +139,18 @@
                     <hr class="divisor">
                     <div class="div-content">
                         <img src="../images/ic-attach-file.svg">
-                        <span class="deadline">Anexos</span>
+                        <span class="deadline">Fotos</span></br></br>
+                        <input type="file" onchange="enableFinishTask()">
                     </div>
+                    <button id="finishTask" type="submit" onclick="changeScreen()" class="button-primary" disabled>FINALIZAR TAREFA</button>
                 </div>
             `;
+        }
+
+        function enableFinishTask() {
+            var btnFinishTask = document.getElementById('finishTask');
+            btnFinishTask.className = "button-default";
+            btnFinishTask.disabled = false;
         }
     </script>
 

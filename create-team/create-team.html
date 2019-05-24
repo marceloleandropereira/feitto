@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feitto</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="create-team.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p class="title"> Trabalho em equipe? </p>
+            <p class="subtitle"> Informe o email dos membros do seu time </p>
+            <div id="div-email" class="width-default">
+                <input type="text" id="email" placeholder="Email do membro do time">
+            </div>
+            <small class="email-add width-default" onclick="addEmail()">+ Adicionar outro</small>
+            <button type="submit" onclick="location.href='../create-task/create-task.html'" class="button-default">PRÓXIMO</button>
+            <button type="submit" onclick="location.href='../create-task/create-task.html'" class="button-primary">TRABALHO SOZINHO</button>
+        </div>
+    </div>
+    <script>
+        function addEmail() {
+            var input = document.createElement("input");
+            input.type = 'text';
+            input.id = 'email';
+            input.placeholder = 'Email do membro do time';
+            document.getElementById('div-email').appendChild(input);
+        }
+    </script>
+</body>
+</html>
